@@ -1,0 +1,23 @@
+{
+  "name": "github-search",
+  "version": "1.0.0",
+  "description": "One page web application using the GitHub API to search for users and display their info",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calyn05/github-search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calyn05/github-search/issues"
+  },
+  "homepage": "https://github.com/calyn05/github-search#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
