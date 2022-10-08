@@ -1,20 +1,34 @@
-const express = require("express");
+import "./style.css";
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// images
+import favicon from "./images/favicon-32x32.png";
+import companyIcon from "./images/icon-company.svg";
+import locationIcon from "./images/icon-location.svg";
+import moonIcon from "./images/icon-moon.svg";
+import sunIcon from "./images/icon-sun.svg";
+import searchIcon from "./images/icon-search.svg";
+import twitterIcon from "./images/icon-twitter.svg";
+import websiteIcon from "./images/icon-website.svg";
 
-app.use(express.static("dist"));
+const faviconElement = document.querySelector("#favicon");
+const companyIconElement = document.querySelector("#company-icon");
+const locationIconElement = document.querySelector("#location-icon");
+const moonIconElement = document.querySelector("#moon-icon");
+const sunIconElement = document.querySelector("#sun-icon");
+const searchIconElement = document.querySelector("#search-icon");
+const websiteIconElement = document.querySelector("#website-icon");
+const twitterIconElement = document.querySelector("#twitter-icon");
 
-app.get("/", (req, res) => {
-  res.sendFile("index.html");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+faviconElement.href = favicon;
+companyIconElement.src = companyIcon;
+locationIconElement.src = locationIcon;
+moonIconElement.src = moonIcon;
+sunIconElement.src = sunIcon;
+searchIconElement.src = searchIcon;
+websiteIconElement.src = websiteIcon;
+twitterIconElement.src = twitterIcon;
 
 //  Get elements
-
 const avatar = document.getElementById("profile-img");
 const username = document.querySelector(".username-title");
 const loginData = document.querySelector(".username-link");
@@ -38,8 +52,6 @@ function searchGithubUserByInput(username) {
   fetch(API_URL + username)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       if (data.login) {
         displayModalUser(data);
         removeListItems(data);
@@ -108,7 +120,6 @@ function fetchDataAndDisplay(username) {
   fetch(API_URL + username)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       avatar.src = data.avatar_url;
       getUsername(data);
       getBio(data);
